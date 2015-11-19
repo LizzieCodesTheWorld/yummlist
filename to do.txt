@@ -1,0 +1,22 @@
+margin: 0 auto chevron
+animation on chevron bounce in + hover effect.
+
+shoppinglist .slidedown()
+shopping list background
+ingredients list background - lined notepaper
+print button (that actually works)
+sessions to save selected recipes
+regular expressions to combine ingredients
+responsive
+get recipe checkbox on same line
+get recipe to disappear when on click of get shopping list
+links to recipes
+load more button
+search box to add more items to created list http://hackeryou.herokuapp.com/2-JavaScript/09-to-do-app.html
+a
+
+script:src  jquerycdn
+
+on('click', function({
+$('.shoopingList'.smoothscroll()
+})

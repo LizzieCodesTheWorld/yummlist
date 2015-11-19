@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Yummlist</title>
+  <link href='https://fonts.googleapis.com/css?family=Karla:400,700|Crimson+Text:400,600|Montserrat' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+  <header>
+    <div class="UserInput">
+      <h1 class="page-title" id="page-title">Yummlist</h1>
+      <h2><strike>Quinoa, kale, beets, flaxseed, zero fat yogurt </strike> CHOCOLATE AND WINE!!!</h2>
+      <form>
+        <div class="cuisines">
+          <select name="cuisine" id="cuisine" class='cuisine'>
+            <option>Choose the Cuisine</option>
+            <option value="american">American</option>
+            <option value="italian">Italian</option>
+            <option value="asian">Asian</option>
+            <option value="mexican">Mexican</option>
+            <option value="soul Food">Soul Food</option>
+            <option value="french">French</option>
+            <option value="southwestern">Southwestern</option>
+            <option value="barbecue">Barbecue</option>
+            <option value="indian">Indian</option>
+            <option value="chinese">Chinese</option>
+            <option value="cajun&Creole">Cajun & Creole</option>
+            <option value="english">English</option>
+            <option value="mediterranean">Mediterranean</option>
+            <option value="greek">Greek</option>
+            <option value="german">German</option>
+            <option value="spanish">Spanish</option>
+            <option value="thai">Thai</option>
+            <option value="moroccan">Moroccan</option>
+            <option value="irish">Irish</option>
+            <option value="japanese">Japanese</option>
+            <option value="cuban">Cuban</option>
+            <option value="Hawaiin">Hawaiian</option>
+            <option value="swedish">Swedish</option>
+            <option value="hungarian">Hungarian</option>
+            <option value="portugese">Portuguese</option>
+        </select>
+        </div>
+        <div class="courses">
+          <select name="course" id="course" class="course">
+            <option>Choose the Course</option>
+            <option value="Main Dishes">Main Dishes</option>
+            <option value="Desserts">Desserts</option>
+            <option value="Side Dishes">Side Dishes</option>
+            <option value="Lunch and Snacks">Lunch and Snacks</option>
+            <option value="Appetizers">Appetizers</option>
+            <option value="Salads">Salads</option>
+            <option value="Breads">Breads</option>
+            <option value="Breakfast and Brunch">Breakfast and Brunch</option>
+            <option value="Soups">Soups</option>
+            <option value="Beverages">Beverages</option>
+            <option value="Condiments and Sauces">Condiments and Sauces</option>
+            <option value="Cocktails">Cocktails</option>
+        </select>
+        </div>
+        <div class="getRecipesButton">
+         <a href="#selectedRecipes">
+            <button class="getRecipes">Get Recipes!</button>
+        </a>
+        </div>
+      </form>
+        <button href="#" class="getShoppingList hide">Get Shopping List
+        <div class="triangle-topright"></div>
+        <div class="triangle-topleft"></div>
+      </button>
+    </div>
+    <h4 class="credits">Powered by the <a href="http://yummley.com">Yummley</a>API</h4>
+  </header>
+
+  <main class="hide">
+    <section class="recipeDisplay">
+      <div class="container recipesSection" id="selectedRecipes">
+        <h2 class='instructions'>Select recipes to add to the shopping list by clicking on the checkmark:</h2>
+      </div>
+
+      <div class="loadMore">
+          <button class="fancyButton loadMore loadMoreBtn hide">Load More Recipes</button>
+      </div>
+    </section>
+    <section class="shoppingListSection hide">  
+      <div class="paper">
+        <h2 class="shoppingListTitle">Shopping list for the Week:</h2>
+        <p class="fa fa-times-circle"></p>
+        <h4 class="shoppingListTitle">If you already have an ingredient click the checkbox to remove it from the list from list:</h4>
+        <div class="shoppingListH2"></div>
+        <button class="shoppingListTitle print" id="btnPrint" value="Print" onclick="printDiv('printableArea')">Print</button>
+        <ul id="shoppingList" class="shoppingList"></ul>
+      </div>
+    </section>
+    <footer class="hide">
+      <h4>Designed and Developed by Lizzie Painter using the Yummly API
+      </h4> 
+    </footer>
+  </main>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="javascript/app1.js"></script>
+<script src="javascript/jquery.smooth-scroll.js"></script>
+</body>
+</html>

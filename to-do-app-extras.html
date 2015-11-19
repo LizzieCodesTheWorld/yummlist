@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+<head>
+  <title>jQuery To Do List App</title>
+</head>
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+<style>
+  #error {
+    display: none;
+  }
+
+  ul li {
+    cursor: move;
+  }
+</style>
+<body>
+
+<div class="jumbotron">
+  <div class="container">
+    <div class="page-header"> <h1>jQuery To Do List App</h1></div>
+    <form>
+      <input class="form-control input-lg" type="text" placeholder="Add an item...">
+    </form>
+
+    <div id="error" class="alert alert-danger">Input field cannot be left empty!</div>
+    <ul>
+      <!-- To do items get added dynamically here -->
+    </ul>
+  </div>
+</div>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<script>
+$(document).ready(function() {
+
+  // when the page loads focus on the input field
+  $('input').focus();
+
+  $('form').on('submit', function(e) {
+      e.preventDefault();
+
+      // find input once and store it
+      $input = $('input');
+
+      if ($input.val() !== '') {
+
+          $('#error').hide();
+
+          var toDoItem = "<span class='toDoItem'><span class='checkbox glyphicon glyphicon-unchecked'></span>" + $input.val() + "</span>"
+
+          //allow the removal of items
+          var removalLink = "<a href='#'><span class='glyphicon glyphicon-trash'></span></a>";
+
+          var toDoListItem = "<li> " + toDoItem + removalLink + "</li>";
+          $('ul').append(toDoListItem);
+          $input.val('');
+      } else {
+        // show error if input is empty
+        $('#error').show();
+      }
+
+      //drag/drop sort items
+      $("ul").sortable();
+  });
+
+  $('ul').on('click', '.toDoItem', function() {
+      var checkBox = $(this).find('.checkbox');
+      checkBox.toggleClass("glyphicon-unchecked glyphicon-check");
+      $(this).toggleClass("text-muted");
+
+      // automatically move completed items to the bottom
+      if (checkBox.is('.glyphicon-check')){
+        var toDoListItem = $(this).parent();
+        moveToBottom(toDoListItem);
+      }
+  });
+
+  //allow the removal of items
+  $('ul').on('click', 'a', function() {
+      var toDoListItem = $(this).parent();
+      toDoListItem.remove();
+  });
+
+  // automatically move completed items to the bottom
+  var moveToBottom = function(item){
+    item.fadeOut(function(){
+      item.appendTo($('ul'));
+      item.fadeIn();
+    });
+  };
+});
+</script>
+</body>
+</html>
